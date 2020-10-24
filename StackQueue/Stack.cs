@@ -21,6 +21,35 @@ namespace StackQueue
             this.top = newNode;
             Console.WriteLine(value+" is added to the stack");
         }
+        /// This method gives the top element of the stack
+        public void Peek() {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty");
+            }
+            else {
+                Console.WriteLine(this.top.data+" is the top element of the stack");
+            }
+        }
+        //Pop method deletes the top data 
+        public void Pop() {
+            if (this.top == null)
+            {
+                Console.WriteLine("No further popping");
+            }
+            else {
+                Console.WriteLine(this.top.data+" has been popped");
+                this.top = this.top.next;
+            }
+        }
+        //Method to accommodate simultaneous popping and peeking till the stack becomes empty
+        public void PeekAndPop() {
+            while (this.top != null) {
+                Peek();
+                Pop();
+            }
+        }
+        /// Method to display a stack by traversing through it
         public void DisplayStack() {
             Node temp = this.top;
             if (temp == null)
