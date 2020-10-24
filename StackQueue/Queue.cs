@@ -10,10 +10,10 @@ namespace StackQueue
         /// Enqueue method adds an element to the queue 
         public void Enqueue(int item)
         {
-            Node new_node = new Node(item);
+            Node newNode = new Node(item);
             if (this.head == null)
             {
-                this.head = new_node;
+                this.head = newNode;
             }
             else
             {
@@ -22,9 +22,22 @@ namespace StackQueue
                 {
                     temp = temp.next;
                 }
-                temp.next = new_node;
+                temp.next = newNode;
             }
-            Console.WriteLine("inserted into list " + new_node.data);
+            Console.WriteLine("inserted into list " + newNode.data);
+        }
+        /// It deletes the last element added 
+        public void Dequeue()
+        {  
+            if (this.head == null)
+            {
+                Console.WriteLine("The Queue is empty");
+                return;
+            }
+            Node temp = this.head;
+            this.head = this.head.next;
+
+            Console.WriteLine("\nItem deleted is {0}", temp.data);
         }
         /// Displays the queue by traversing through it
         public void DisplayQueue()
